@@ -54,10 +54,10 @@ def transfer():
 
         # Fetch updated balances
         cursor.execute("SELECT balance FROM users WHERE id=%s", (sender,))
-        new_sender_balance = cursor.fetchone()["balance"]
+        new_sender_balance = float(cursor.fetchone()["balance"])
 
         cursor.execute("SELECT balance FROM users WHERE id=%s", (receiver,))
-        new_receiver_balance = cursor.fetchone()["balance"]
+        new_receiver_balance = float(cursor.fetchone()["balance"])
 
         # Emit events to all connected clients
         socketio.emit("balance_update", {

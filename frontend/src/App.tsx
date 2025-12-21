@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { io } from "socket.io-client";
 
 const socket = io("http://localhost:5000");
@@ -128,7 +128,8 @@ export default function WalletApp() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-gray-200 text-gray-800">
-                  <th className="p-3">TX ID</th>
+                  <th className="p-3">TX_ID</th>
+                  <th className="p-3">Created_At</th>
                   <th className="p-3">Sender</th>
                   <th className="p-3">Receiver</th>
                   <th className="p-3">Amount</th>
@@ -138,6 +139,7 @@ export default function WalletApp() {
                 {history.map((tx, i) => (
                   <tr key={i} className="border-b hover:bg-gray-50">
                     <td className="p-3">{tx.transaction_id}</td>
+                    <td className="p-3">{tx.created_at}</td>
                     <td className="p-3">{tx.sender_id}</td>
                     <td className="p-3">{tx.receiver_id}</td>
                     <td className="p-3 font-semibold text-blue-700">{tx.amount}</td>
