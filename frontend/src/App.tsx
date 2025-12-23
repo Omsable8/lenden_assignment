@@ -92,7 +92,7 @@ export default function WalletApp() {
         <div className="w-full max-w-4xl flex flex-col gap-8">
           {/* Balance Card */}
           <div className="bg-white shadow-xl p-6 rounded-2xl border border-gray-200">
-            <h2 className="text-xl font-bold text-gray-900">Your Balance</h2>
+            <h2 className="text-xl font-bold text-gray-900">User {userId} Your Balance</h2>
             <div className="text-4xl font-semibold text-green-600 mt-2">
               {balance !== null ? `${balance} ₹` : "Loading..."}
             </div>
